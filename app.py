@@ -80,6 +80,6 @@ if st.button('Predict Churn'):
     if churn_probability >0.80:
       st.error('this customer is at HIGH RISK of churning.')
     elif churn_probability >0.50:
-      st.warning('this customer is at MEDIUM RISK of churning.')
+      st.warning('this customer is at MEDIUM RISK of churning')
     else:
       st.success('this customer is likely to be retained.')
