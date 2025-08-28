@@ -226,10 +226,10 @@ final_array_1d = final_array[:, 1]
 #an AUC of 1.0 indicates a perfect model that correctly separates the two classes without any errors while an AUC of 0.5 indicates a model that is no better than a random guess.So basically a higher AUC score means your model is better at distinguishing between the two classes.
 from sklearn.metrics import roc_curve, roc_auc_score
 
-# Get the probability of the positive class (churn = 1)
+#getting the probability of the positive class (churn = 1)
 #y_prob = best_model.predict_proba(x_test)[:, 1]
 
-# Calculate the ROC curve and AUC score
+#calculating the ROC curve and AUC score
 fpr, tpr, thresholds = roc_curve(y_test, final_array_1d) #calculating the data points for the ROC curve threby comparing the true labels (y_test) to the predicted probabilities (y_prob)
 auc_score = roc_auc_score(y_test, final_array_1d) #calculating the final auc score
 
@@ -255,12 +255,9 @@ plt.show()
 #This will save our trained model and the scaler as binary files (.pkl) that our app can load later
 
 output_folder = r'C:\Users\KIIT0001\Desktop\customer_churn_project'
-
-# Save the model
+#saving the model
 joblib.dump(best_model, output_folder + r'\churn_model.pkl')
-
-# Save the scaler
+#saving the scaler
 joblib.dump(scaler, output_folder + r'\scaler.pkl')
-
-# Save the feature columns
+#saving the feature columns
 joblib.dump(feature_cols, output_folder + r'\feature_cols.pkl')
