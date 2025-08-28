@@ -70,11 +70,16 @@ if st.button('Predict Churn'):
     #finally making the prediction
     prediction_probab = model.predict_proba(user_df_final)[:, 1]#will return the probability of a customer churning
 
+   
     #and displaying the result
     st.subheader('Prediction Result:')
     st.write(f'The probability of this customer churning is: **{prediction_probab[0]:.2%}**')
 
-    if prediction_probab[0] > 0.5:
-        st.error('this customer is at high risk of churning.')
+    #setting a higher threshold value so now the model will only predict churn if it's at least 70% confident
+    churn_probability = prediction_probab[0]
+    if churn_probability >0.80:
+      st.error('this customer is at HIGH RISK of churning.')
+    elif churn_probability >0.50:
+      st.warning('this customer is at MEDIUM RISK of churning.')
     else:
-        st.success('this customer is likely to be retained.')
+      st.success('this customer is likely to be retained.')

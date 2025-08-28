@@ -120,6 +120,9 @@ print(classification_report(y_test, y_pred))#printing the classification report:
 #accuracy: 82% meaning our model was 82% correct while making the predictions
 #macro avg- for balanced data and weighted avg- for imbalanced data
 
+#note-high recall means our model is sensitive and catches many of the actual churners and low precision means our model is also making a lot of false positives
+#to reduce the number of false positives, we need to increase our threshold function(which is 0.5 , by default)[OPTIONAL to keep a threshold variable]
+
 #note- we used classification report instead of the confusion matrix as it gives a much more clear idea and a classification report is a summarised version of the confusion matrix.(and it also calculates the key metrices)
 
 
@@ -244,7 +247,6 @@ plt.show()
 
 ##BUILDING A SIMPLE WEB APP FOR DEPLOYMENT:
 
-
 #saving the model to a file
 #joblib.dump(best_model, 'churn_model.pkl')
 
@@ -252,8 +254,6 @@ plt.show()
 #joblib.dump(scaler, 'scaler.pkl')
 #This will save our trained model and the scaler as binary files (.pkl) that our app can load later
 
-
-# Make sure you have the correct file path here
 output_folder = r'C:\Users\KIIT0001\Desktop\customer_churn_project'
 
 # Save the model
